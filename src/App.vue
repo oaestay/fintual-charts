@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Chart v-for="(fund, index) in funds" :key="`fund-chart-${index}`" :real-asset-id="fund.realAssetId" :name="fund.name" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Chart from './components/Chart.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Chart
+  },
+  data: function () {
+    return {
+      funds: [
+        {
+          realAssetId: 186,
+          name: "Risky Norris",
+        },
+        {
+          realAssetId: 187,
+          name: "Moderate Pitt",
+        },
+        {
+          realAssetId: 188,
+          name: "Conservative Clooney",
+        },
+      ]
+    };
   }
 }
 </script>
