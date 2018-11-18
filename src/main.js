@@ -6,6 +6,8 @@ import Highcharts from 'highcharts'
 import stockInit from 'highcharts/modules/stock';
 import './registerServiceWorker';
 
+import DrawerLayout from 'vue-drawer-layout';
+
 import Home from './components/Home.vue';
 import Charts from './components/Charts.vue';
 
@@ -14,6 +16,7 @@ stockInit(Highcharts);
 Vue.config.productionTip = false;
 Vue.use(HighchartsVue);
 Vue.use(VueRouter);
+Vue.use(DrawerLayout);
 
 const routes = [
   { path: '/', component: Home },
