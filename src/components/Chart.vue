@@ -1,9 +1,13 @@
 <template>
   <div class="chart">
+    <h1 class="highcharts-title">Valor cuota fondo {{name}}</h1>
+    <h2 class="highcharts-subtitle">{{ profit }}</h2>
     <highcharts :constructor-type="'stockChart'" :options="options"></highcharts>
   </div>
 </template>
 <script>
+
+import _ from 'lodash';
 
 export default {
   name: 'Chart',
@@ -14,6 +18,8 @@ export default {
   data: function () {
     return {
       days: [],
+      startDate: null,
+      endDate: null,
     };
   },
   created: function () {
@@ -28,19 +34,31 @@ export default {
           .map(day => [Date.parse(day["attributes"]["date"]), day["attributes"]["price"]])
           .sort((a, b) => a[0] - b[0])
       });
+    },
+    setExtremes(e) {
+      this.startDate = e.min;
+      this.endDate = e.max;
     }
   },
   computed: {
     options() {
       return {
-        title: {
-          text: `Valor cuota fondo ${this.name}`
-        },
         series: [{
           name: 'Valor Cuota',
           data: this.days
         }],
+        xAxis: {
+          events: {
+            afterSetExtremes: this.setExtremes,
+          },
+        },
       };
+    },
+    profit() {
+      if (!this.startDate || !this.endDate) { return '' }
+      const minValue = this.days.find(day => _.inRange(day[0], this.startDate, this.endDate + 1))[1];
+      const maxValue = _.reverse(this.days).find(day => _.inRange(day[0], this.startDate, this.endDate + 1))[1];
+      return `(Rentabilidad del periodo seleccionado: ${_.round(((maxValue - minValue) / minValue) * 100, 4)}%)`
     }
   }
 }
@@ -48,6 +66,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+h1.highcharts-title, h3.highcharts-subtitle {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+}
 h3 {
   margin: 40px 0 0;
 }
