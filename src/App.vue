@@ -1,15 +1,18 @@
 <template>
   <div id="app">
+    <CompareChart />
     <Chart v-for="(fund, index) in funds" :key="`fund-chart-${index}`" :real-asset-id="fund.realAssetId" :name="fund.name" />
   </div>
 </template>
 
 <script>
 import Chart from './components/Chart.vue'
+import CompareChart from './components/CompareChart.vue'
 export default {
   name: 'app',
   components: {
-    Chart
+    Chart,
+    CompareChart
   },
   data: function () {
     return {
