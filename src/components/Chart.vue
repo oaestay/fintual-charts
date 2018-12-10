@@ -85,4 +85,9 @@ li {
 a {
   color: #42b983;
 }
+@media (max-width: 768px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: .8em;
+  }
+}
 </style>
