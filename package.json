@@ -11,7 +11,10 @@
     "highcharts": "^6.2.0",
     "highcharts-vue": "^1.2.0",
     "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
     "register-service-worker": "^1.0.0",
+    "sass": "^1.15.2",
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17"
   },
   "devDependencies": {
