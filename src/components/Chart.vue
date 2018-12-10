@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable */
 
 import _ from 'lodash';
 
@@ -56,9 +57,10 @@ export default {
     },
     profit() {
       if (!this.startDate || !this.endDate) { return '' }
-      const minValue = this.days.find(day => _.inRange(day[0], this.startDate, this.endDate + 1))[1];
-      const maxValue = _.reverse(this.days).find(day => _.inRange(day[0], this.startDate, this.endDate + 1))[1];
-      return `(Rentabilidad del periodo seleccionado: ${_.round(((maxValue - minValue) / minValue) * 100, 4)}%)`
+      const sortedDays = _.cloneDeep(this.days).sort((a, b) => a[0] - b[0])
+      const startElement = sortedDays.find(day => _.inRange(day[0], this.startDate, this.endDate + 1))
+      const endElement = _.reverse(sortedDays).find(day => _.inRange(day[0], this.startDate, this.endDate + 1))
+      return `(Rentabilidad del periodo seleccionado: ${_.round(((endElement[1] - startElement[1]) / startElement[1]) * 100, 4)}%)`
     }
   }
 }
