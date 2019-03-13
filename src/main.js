@@ -1,15 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
-import HighchartsVue from 'highcharts-vue'
-import Highcharts from 'highcharts'
-import stockInit from 'highcharts/modules/stock'
-import './registerServiceWorker'
+import Vue from 'vue';
+import App from './App.vue';
+import './registerServiceWorker';
 
-stockInit(Highcharts)
+stockInit(Highcharts);
 
-Vue.config.productionTip = false
-Vue.use(HighchartsVue);
+Vue.config.productionTip = false;
+Vue.component('apexchart', VueApexCharts);
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');
