@@ -8,7 +8,11 @@
           </a>
         </div>
       </div>
-      <Chart v-for="(fund, index) in funds" :key="`fund-chart-${index}`" :real-asset-id="fund.realAssetId" :name="fund.name" />
+      <Chart v-for="(serie, index) in series"
+        :key="`serie-chart-${index}`"
+        :asset-id="serie.assetId"
+        :fundName="serie.fundName"
+        :serieName="serie.serieName" />
     </div>
   </div>
 </template>
@@ -23,19 +27,34 @@ export default {
   data: function () {
     return {
       baseUrl: process.env.BASE_URL,
-      funds: [
+      series: [
         {
-          realAssetId: 186,
-          name: "Risky Norris",
+          assetId: 186,
+          fundName: 'Risky Norris',
+          serieName: 'Serie A',
+        }, {
+          assetId: 245,
+          fundName: 'Risky Norris',
+          serieName: 'Serie APV 👵🏼🧓🏼',
         },
         {
-          realAssetId: 187,
-          name: "Moderate Pitt",
+          assetId: 187,
+          fundName: 'Moderate Pitt',
+          serieName: 'Serie A',
+        }, {
+          assetId: 246,
+          fundName: 'Moderate Pitt',
+          serieName: 'Serie APV 👵🏼🧓🏼',
         },
         {
-          realAssetId: 188,
-          name: "Conservative Clooney",
-        },
+          assetId: 188,
+          fundName: 'Conservative Clooney',
+          serieName: 'Serie A',
+        }, {
+          assetId: 247,
+          fundName: 'Conservative Clooney',
+          serieName: 'Serie APV 👵🏼🧓🏼',
+        }
       ]
     };
   }
