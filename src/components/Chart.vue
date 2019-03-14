@@ -38,7 +38,8 @@ export default {
                      .map(day => [Date.parse(day['attributes']['date']), day['attributes']['price']])
                      .sort((a, b) => a[0] - b[0]),
           }];
-        }).then(() => this.setExtremes({}));
+        }).then(() => this.setExtremes({}))
+          .then(() => this.$emit('loaded', this.assetId));
     },
     setExtremes({ min, max }) {
       this.startDate = min ? min : _.min(this.series[0].data.map(val => val[0]));
