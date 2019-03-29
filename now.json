@@ -1,7 +1,12 @@
 {
   "version": 2,
   "name": "fintual-charts",
-  "alias": ["fintual-charts.oscarin.pw", "www.fintual-charts.oscarin.pw"],
+  "alias": [
+    "fintual-charts.oscarin.pw",
+    "www.fintual-charts.oscarin.pw",
+    "fintual-charts.oscarestay.com",
+    "www.fintual-charts.oscarestay.com"
+  ],
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
   "routes": [
     { "src": "^/js/(.*)", "dest": "/js/$1" },
