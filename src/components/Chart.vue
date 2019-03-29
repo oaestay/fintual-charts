@@ -35,7 +35,7 @@ export default {
           this.series = [{
             name: this.serieName,
             data: data['data']
-                     .map(day => [Date.parse(day['attributes']['date']), day['attributes']['price']])
+                     .map(day => [Date.parse(day['attributes']['date'] + ' 00:00:00'), day['attributes']['price']])
                      .sort((a, b) => a[0] - b[0]),
           }];
         }).then(() => this.setExtremes({}))
@@ -123,10 +123,11 @@ export default {
     },
     profit() {
       if (!this.startDate || !this.endDate || _.isEmpty(this.series[0].data)) { return '' }
-      const sortedValues = _.cloneDeep(this.series[0].data).sort((a, b) => a[0] - b[0])
-      const startElement = sortedValues.find(value => _.inRange(value[0], this.startDate, this.endDate + 1))
-      const endElement = _.reverse(sortedValues).find(value => _.inRange(value[0], this.startDate, this.endDate + 1))
-      return `(Rentabilidad entre el ${this.formatDate(this.startDate)} y el ${this.formatDate(this.endDate)}: ${_.round(((endElement[1] - startElement[1]) / startElement[1]) * 100, 4)}%)`
+      const sortedValues = _.cloneDeep(this.series[0].data).sort((a, b) => a[0] - b[0]);
+      const daysInRange = sortedValues.filter(value => this.startDate <= value[0] && value[0] <= this.endDate);
+      const startElement = _.first(daysInRange);
+      const endElement = _.last(daysInRange);
+      return `(Rentabilidad entre el ${this.formatDate(this.startDate)} y el ${this.formatDate(this.endDate)}: ${_.round(((endElement[1] - startElement[1]) / startElement[1]) * 100, 2)}%)`
     },
   }
 }
