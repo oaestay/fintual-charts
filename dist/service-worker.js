@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.48cee48d669db681e32f2320a2352c9e.js"
+  "precache-manifest.813d620f88488a285c2e17a2a5decbd0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "fintual-graphs"});
