@@ -66,7 +66,12 @@ export default {
           fundName: 'Conservative Clooney',
           serieName: 'Serie APV 👵🏼🧓🏼',
           ready: false,
-        }
+        }, {
+          assetId: 15077,
+          fundName: 'Very Conservative Streep',
+          serieName: 'Serie A',
+          ready: false,
+        },
       ],
       loadedSeries: {
         186: false,
@@ -75,6 +80,7 @@ export default {
         246: false,
         188: false,
         247: false,
+        15077: false,
       }
     };
   },
