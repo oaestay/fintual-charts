@@ -32,7 +32,6 @@ export default {
   },
   data: function () {
     return {
-      baseUrl: process.env.BASE_URL,
       series: [
         {
           assetId: 186,
