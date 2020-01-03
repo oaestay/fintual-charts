@@ -36,6 +36,7 @@ export default {
             name: this.serieName,
             data: data['data']
                      .map(day => [Date.parse(`${day['attributes']['date']}T00:00:00.000-04:00`), day['attributes']['price']])
+                     .filter(([date, price]) => !!price)
                      .sort((a, b) => a[0] - b[0]),
           }];
         }).then(() => this.setExtremes({}))
