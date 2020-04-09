@@ -157,7 +157,7 @@ a {
 .chart__svg .apexcharts-selection-icon.selected svg,
 .chart__svg .apexcharts-reset-zoom-icon.selected svg,
 .chart__svg .apexcharts-pan-icon.selected svg {
-  fill: #3dade2;
+  fill: #005AD6;
 }
 @media (max-width: 768px) {
   h1, h2, h3, h4, h5, h6 {
