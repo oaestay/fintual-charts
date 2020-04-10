@@ -98,9 +98,9 @@ export default {
 
 <style>
 #app {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: Poppins, Roboto, sans-serif !important;
   text-align: center;
-  color: #2c3e50;
+  color: #282828;
 }
 .container {
   margin: 30px 100px;
