@@ -136,7 +136,7 @@ export default {
               var j = (j = i.length) > 3 ? j % 3 : 0;
               return "$ " + (j ? i.substr(0, j) + "." : "") +
                 i.substr(j).replace(/(\,{3})(?=\,)/g, "$1" + ".") +
-	              ("," + Math.abs(value - i).toFixed(4).slice(2));
+                ("," + Math.abs(value - i).toFixed(4).slice(2));
             }
           }
         }
@@ -148,7 +148,13 @@ export default {
       const daysInRange = sortedValues.filter(value => this.startDate <= value[0] && value[0] <= this.endDate);
       const startElement = _.first(daysInRange);
       const endElement = _.last(daysInRange);
-      return `(Rentabilidad entre el ${this.formatDate(this.startDate)} y el ${this.formatDate(this.endDate)}: ${_.round(((endElement[1] - startElement[1]) / startElement[1]) * 100, 2)}%)`
+      var profit = _.round(((endElement[1] - startElement[1]) / startElement[1]) * 100, 2)
+      var i = String(parseInt(profit.toFixed(2)));
+      var j = (j = i.length) > 3 ? j % 3 : 0;
+      profit = (j ? i.substr(0, j) + "." : "") +
+        i.substr(j).replace(/(\,{3})(?=\,)/g, "$1" + ".") +
+        ("," + Math.abs(profit - i).toFixed(2).slice(2));
+      return `(Rentabilidad entre el ${this.formatDate(this.startDate)} y el ${this.formatDate(this.endDate)}: ${profit}%)`
     },
   }
 }
