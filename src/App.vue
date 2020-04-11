@@ -4,7 +4,7 @@
       <div class="navbar">
         <div class="navbar--brand">
           <a href="https://www.fintual.cl">
-            <img class="navbar--brand__logo" src="https://oaestay.github.io/fintual-charts/img/logo.png" />
+            <img class="navbar--brand__logo" src="img/logo.png" />
           </a>
         </div>
       </div>
