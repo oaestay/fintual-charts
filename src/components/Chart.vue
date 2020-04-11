@@ -62,6 +62,7 @@ export default {
       return {
         chart: {
           stacked: false,
+          fontFamily: 'Poppins, Roboto, sans-serif',
           zoom: {
             type: 'x',
             enabled: true
@@ -99,7 +100,7 @@ export default {
             },
           }
         },
-        colors: ['#3DADE2'],
+        colors: ['#005AD6'],
         stroke: {
           width: 3
         },
@@ -119,6 +120,7 @@ export default {
         },
         yaxis: {
           showAlways: true,
+          decimalsInFloat: 0
         }
       };
     },
@@ -137,7 +139,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 h1.chart__title, h3.chart__subtitle {
-  font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+  font-family: Poppins, Roboto, sans-serif;
 }
 h3 {
   margin: 40px 0 0;
