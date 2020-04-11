@@ -120,7 +120,25 @@ export default {
         },
         yaxis: {
           showAlways: true,
-          decimalsInFloat: 0
+          labels: {
+            formatter: function(value) {
+              var i = String(parseInt(value.toFixed(0)));
+              var j = (j = i.length) > 3 ? j % 3 : 0;
+              return "$ " + (j ? i.substr(0, j) + "." : "") +
+                i.substr(j).replace(/(\,{3})(?=\,)/g, "$1" + ".");
+            }
+          }
+        },
+        tooltip: {
+          y: {
+            formatter: function(value, { series, seriesIndex, dataPointIndex, w }) {
+              var i = String(parseInt(value.toFixed(4)));
+              var j = (j = i.length) > 3 ? j % 3 : 0;
+              return "$ " + (j ? i.substr(0, j) + "." : "") +
+                i.substr(j).replace(/(\,{3})(?=\,)/g, "$1" + ".") +
+	              ("," + Math.abs(value - i).toFixed(4).slice(2));
+            }
+          }
         }
       };
     },
