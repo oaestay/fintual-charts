@@ -4,7 +4,7 @@
       <div class="navbar">
         <div class="navbar--brand">
           <a href="https://www.fintual.cl">
-            <img class="navbar--brand__logo" src="img/logo.png" />
+            <img class="navbar--brand__logo" src="img/logo.svg" />
           </a>
         </div>
       </div>
@@ -113,7 +113,7 @@ export default {
   max-width: 150px;
 }
 .navbar .navbar--brand__logo {
-  width: 100%;
+  width: 130px;
 }
 .chart {
   margin-bottom: 32px;
